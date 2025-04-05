@@ -10,7 +10,7 @@ from custom_modules import func_use_extract_data as func
 from custom_modules import func_analysis as analysis
 
 # to disable warning by file_uploader going to convert into io.TextIOWrapper
-st.set_option('deprecation.showfileUploaderEncoding', False)
+# st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # ------------------------------------------------
 
@@ -18,7 +18,8 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("WhatsApp Chat Analyzer 😃")
 st.markdown(
     "This app is use to analyze your WhatsApp Chat using the exported text file 📁.")
-st.sidebar.image("./assets/images/banner.jpeg",use_column_width=True)
+# st.sidebar.image("./assets/images/banner.jpeg",use_column_width=True)
+st.sidebar.image("./assets/images/banner.jpeg", use_container_width=True)
 st.sidebar.title("Analyze:")
 st.sidebar.markdown(
     "This app is use to analyze your WhatsApp Chat using the exported text file 📁.")
@@ -79,13 +80,16 @@ if filename is not None:
             content = filename.read().decode('utf-8')
 
             # Use StringIO object to create a file-like object
+            # with io.StringIO(content) as f:
+            #     reader = reader(f, delimiter='\n')
+            #     for each in reader:
+            #         if len(each) > 0:
+            #             file_contents.append(each[0])
+            #         else:
+            #             file_contents.append('')
             with io.StringIO(content) as f:
-                reader = csv.reader(f, delimiter='\n')
-                for each in reader:
-                    if len(each) > 0:
-                        file_contents.append(each[0])
-                    else:
-                        file_contents.append('')
+                file_contents = f.read().splitlines()
+
         else:
             st.error("Please upload the WhatsApp chat dataset!")
 
