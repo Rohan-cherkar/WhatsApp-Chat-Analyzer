@@ -15,18 +15,18 @@ from custom_modules import func_analysis as analysis
 # ------------------------------------------------
 
 # Sidebar and main screen text and title.
-st.title("WhatsApp Chat Analyzer 😃")
+st.title("welcome to WhatsApp Chat Analyzer 📊📈")
 st.markdown(
-    "This app is use to analyze your WhatsApp Chat using the exported text file 📁.")
+    "This app is use to analyze your WhatsApp Chat using the exported text file from whatsapp📁.")
 # st.sidebar.image("./assets/images/banner.jpeg",use_column_width=True)
-st.sidebar.image("./assets/images/banner.jpeg", use_container_width=True)
+st.sidebar.image("./assets/images/logo.jpg", use_container_width=True)
 st.sidebar.title("Analyze:")
-st.sidebar.markdown(
-    "This app is use to analyze your WhatsApp Chat using the exported text file 📁.")
+# st.sidebar.markdown(
+#     "This app is use to analyze your WhatsApp Chat using the exported text file 📁.")
 
-st.sidebar.markdown('<b>Prem Chandra Singh</b>\
-                <a href = "https://github.com/pcsingh/WhatsApp-Chat-Analyzer/" ><img src = "https://img.shields.io/badge/Author-@pcsingh-gray.svg?colorA=gray&colorB=dodgerblue&logo=github"/>\
-                <a/>', unsafe_allow_html=True)
+# st.sidebar.markdown('<b>Prem Chandra Singh</b>\
+#                 <a href = "https://github.com/pcsingh/WhatsApp-Chat-Analyzer/" ><img src = "https://img.shields.io/badge/Author-@pcsingh-gray.svg?colorA=gray&colorB=dodgerblue&logo=github"/>\
+#                 <a/>', unsafe_allow_html=True)
 
 st.sidebar.markdown('**How to export chat text file?**')
 st.sidebar.text('Follow the steps 👇:')
@@ -123,7 +123,7 @@ if filename is not None:
                     for e in emoji[:10]:
                         st.markdown('**{}** : {}'.format(e[0], e[1]))
 
-                    st.write('**Visualize emoji distribution in pie chart:**')
+                    st.write('**\nVisualize emoji distribution in pie chart:**')
                     st.plotly_chart(analysis.visualize_emoji(data))
 
                     st.markdown('**Word Cloud:**')
@@ -208,7 +208,7 @@ if filename is not None:
         # st.error("Something is wrong! Try Again. Error Type: {}".format(e))
 
 
-st.sidebar.markdown(
-    "[![built with love](https://forthebadge.com/images/badges/built-with-love.svg)](https://www.linkedin.com/in/premchandra-singh/)")
-st.sidebar.markdown(
-    "[![smile please](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://www.linkedin.com/in/premchandra-singh/)")
+# st.sidebar.markdown(
+#     "[![built with love](https://forthebadge.com/images/badges/built-with-love.svg)](https://www.linkedin.com/in/premchandra-singh/)")
+# st.sidebar.markdown(
+#     "[![smile please](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://www.linkedin.com/in/premchandra-singh/)")
