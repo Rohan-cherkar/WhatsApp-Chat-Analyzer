@@ -47,6 +47,14 @@ filename = st.sidebar.file_uploader("", type=["txt"])
 st.sidebar.markdown("**Don't worry your data is not stored!**")
 st.sidebar.markdown("**feel free to use 😊.**")
 
+
+#Adding new feature sentiment analysis
+st.sidebar.markdown("## Sentiment analysis of chat ")
+
+run_sentiment = st.sidebar.checkbox("Run Sentiment Analysis")
+# run_summary = st.sidebar.checkbox("Generate Chat Summary")
+
+# run_wordcloud = st.sidebar.checkbox("Generate Word Cloud")
 # =========================================================
 
 # Select feature for txt file {Way 2}
@@ -68,6 +76,8 @@ st.sidebar.markdown("**feel free to use 😊.**")
 # ===========================================================
 if filename is not None:
 
+
+# st.write(analysis.sentiment_over_time(data))
     # Loading files into data as a DataFrame
     # filename = ("./Chat.txt")
     # @st.cache(persist=True, allow_output_mutation=True) # https://docs.streamlit.io/library/advanced-features/caching#:~:text=st.cache_data%C2%A0is%20the%20recommended%20way%20to%20cache%20computations%20that%20return%20data%3A%20loading%20a%20DataFrame%20from%20CSV%2C
@@ -97,6 +107,8 @@ if filename is not None:
 
     try:
         data = load_data()
+        data = analysis.apply_sentiment_analysis(data)
+
 
         if data.empty:
             st.error("Please upload the WhatsApp chat dataset!")
@@ -111,6 +123,11 @@ if filename is not None:
         names.append('All')
         member = st.sidebar.selectbox("Member Name", names, key='1')
 
+        # sentiment analysis
+        if run_sentiment:
+            st.markdown("## Sentiment Analysis")
+            st.plotly_chart(analysis.sentiment_distribution(data))
+            st.plotly_chart(analysis.sentiment_by_user(data))
         if not st.sidebar.checkbox("Hide", True):
             try:
                 if member == "All":
@@ -212,3 +229,8 @@ if filename is not None:
 #     "[![built with love](https://forthebadge.com/images/badges/built-with-love.svg)](https://www.linkedin.com/in/premchandra-singh/)")
 # st.sidebar.markdown(
 #     "[![smile please](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://www.linkedin.com/in/premchandra-singh/)")
+
+
+#sentiment analysis
+# data = load_data()
+# data = analysis.apply_sentiment_analysis(data)

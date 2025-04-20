@@ -197,4 +197,44 @@ def chatter(data):
     # fig.show()
     return fig
 
+#adding new features ---->sentiment analysis
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import plotly.express as px
 
+analyzer = SentimentIntensityAnalyzer()
+
+def get_sentiment(text):
+    score = analyzer.polarity_scores(text)
+    if score['compound'] >= 0.05:
+        return 'Positive'
+    elif score['compound'] <= -0.05:
+        return 'Negative'
+    else:
+        return 'Neutral'
+
+def apply_sentiment_analysis(df):
+    df['Sentiment'] = df['Message'].apply(get_sentiment)
+    return df
+
+def sentiment_distribution(df):
+    sentiment_count = df['Sentiment'].value_counts().reset_index()
+    sentiment_count.columns = ['Sentiment', 'Count']
+    fig = px.pie(sentiment_count, values='Count', names='Sentiment', title='Sentiment Distribution')
+    return fig
+
+def sentiment_by_user(df):
+    user_sentiment = df.groupby(['Author', 'Sentiment']).size().unstack().fillna(0)
+    fig = px.bar(user_sentiment, barmode='group', title='Sentiment by User')
+    return fig
+
+# # chat summary 
+# from transformers import pipeline
+
+# summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+# def generate_chat_summary(messages, max_chars=1000):
+#     combined_text = " ".join(messages)
+#     if len(combined_text) > max_chars:
+#         combined_text = combined_text[:max_chars]  # To avoid token overflow
+#     summary = summarizer(combined_text, max_length=100, min_length=30, do_sample=False)
+#     return summary[0]['summary_text']
