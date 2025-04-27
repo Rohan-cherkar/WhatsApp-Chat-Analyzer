@@ -99,7 +99,7 @@ def active_time(data):
         With this data graph is generated.
 
     Returns
-    -------
+     -------
     None.
 
     """
@@ -228,6 +228,7 @@ def sentiment_by_user(df):
     return fig
 
 # # chat summary 
+
 # from transformers import pipeline
 
 # summarizer = pipeline("summarization", model="facebook/bart-large-cnn")

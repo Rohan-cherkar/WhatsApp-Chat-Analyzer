@@ -8,6 +8,8 @@ import os
 
 from custom_modules import func_use_extract_data as func
 from custom_modules import func_analysis as analysis
+# 
+# sentiment analysis by ML
 
 # to disable warning by file_uploader going to convert into io.TextIOWrapper
 # st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -49,7 +51,7 @@ st.sidebar.markdown("**feel free to use 😊.**")
 
 
 #Adding new feature sentiment analysis
-st.sidebar.markdown("## Sentiment analysis of chat ")
+st.sidebar.markdown("## Sentiment analysis of chat  ")
 
 run_sentiment = st.sidebar.checkbox("Run Sentiment Analysis")
 # run_summary = st.sidebar.checkbox("Generate Chat Summary")
