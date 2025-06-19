@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background: #000;
+}
+.card{
+    width: 90%;
+    max-width: 470px;
+    color: #fff;
+    background:linear-gradient(135deg,#00feba,#2eacc3);
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}   
+
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input{
+    border: 0;
+    outline: 0;
+    border-radius: 30px;
+    padding: 10px 25px;
+    height: 60px;
+    flex:1;
+    margin-right: 30px;
+    font-size: 18px;
+}
+
+.search button img{
+    width: 25px;
+    height: 30px;
+}
+.search button{
+    border: 0;
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+.details col{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.details img{
+    width: 40px;
+    margin-right:10px ;
+}
+
+.whether-icon{
+    height: 160px;
+    width: 130px;
+}
+
+.whether h1{
+    font-size: 35px;
+}
+.whether h2{
+    font-size: 30px;
+}
